@@ -3,9 +3,7 @@ import { ToastrService } from "ngx-toastr";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TaskStorageService } from '../../task-storage.service';
-import { ActivatedRoute } from '@angular/router';
-
-
+import { ActivatedRoute,Router } from '@angular/router';
 
 interface Task {
   name: string;
@@ -30,7 +28,8 @@ export class EditTaskComponent implements OnInit{
   constructor(
     private toastr: ToastrService,
     private taskService: TaskStorageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
 
   }
@@ -75,7 +74,10 @@ export class EditTaskComponent implements OnInit{
       this.tasks = this.taskService.getTasks();
       this.toastr.success('The task has been successfully edited.');
       this.formData = { name: '', description: '', dueDate: '' };
-      this.toUpdateName='';
+      if(this.toUpdateName!==''){
+        this.toUpdateName='';
+        this.router.navigate(['side_nav/list_view']);
+      }
     }else{
       this.toastr.error('An error occurred. Please try again.');
     }

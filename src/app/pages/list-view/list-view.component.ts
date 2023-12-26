@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ToastrService } from "ngx-toastr";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TaskStorageService } from '../../task-storage.service';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+
 
 
 
@@ -26,6 +28,7 @@ interface Task {
   styleUrl: './list-view.component.scss'
 })
 export class ListViewComponent implements OnInit {
+
   tasks: Task[] = [];
   page = 1;
   pageSize = 5;
@@ -33,7 +36,8 @@ export class ListViewComponent implements OnInit {
   constructor(
     private toastr: ToastrService,
     private taskService: TaskStorageService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal,
   ) {
   }
 
@@ -68,6 +72,11 @@ export class ListViewComponent implements OnInit {
     this.sort_due_date();
     this.toastr.warning("The task is deleted.")
   }
+  deleteAllTask() {
+    localStorage.removeItem('tasks');
+    this.modalService.dismissAll();
+    this.toastr.success('All your tasks asr deleted!')
+  }
 
   getMax() {
     return Math.min(this.page * this.pageSize, this.tasks?.length ?? 0);
@@ -81,5 +90,10 @@ export class ListViewComponent implements OnInit {
     if(dueDate < currentDate) return -1;
     else if(dueDate > currentDate) return 1;
     else return 0;
+  }
+
+  //open modal
+  openDialog(addManually: TemplateRef<any>) {
+    this.modalService.open(addManually, { backdrop: 'static', animation: true});
   }
 }

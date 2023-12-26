@@ -1,9 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import { ToastrService } from "ngx-toastr";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TaskStorageService } from '../../task-storage.service';
-import { Router } from '@angular/router';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexGrid, ApexLegend, ApexMarkers, ApexStroke, ApexTitleSubtitle, ApexXAxis, ApexYAxis, ChartType, NgApexchartsModule } from 'ng-apexcharts';
 
 interface Task {
@@ -41,9 +39,7 @@ export class ChartViewComponent implements OnInit {
   chart_type:ChartType = 'line';
 
   constructor(
-    private toastr: ToastrService,
     private taskService: TaskStorageService,
-    private router: Router,
   ) {
 
   }
@@ -57,7 +53,6 @@ export class ChartViewComponent implements OnInit {
 
     const nextSevenDays = this.getNextSevenDays();
     const xLabels = this.xAxisDateLabel(nextSevenDays);
-    console.log(xLabels);
     // Prepare data for the series
     const seriesData = nextSevenDays.map(date => {
       const tasksDueOnDate = this.tasks.filter(task => this.isSameDay(new Date(task.dueDate), date));
@@ -67,6 +62,7 @@ export class ChartViewComponent implements OnInit {
     // Initialize chart configuration
     this.chart = {
       type: this.chart_type,
+      height: 320,
       dropShadow: {
         enabled: true,
         color: "#000",
@@ -107,7 +103,7 @@ export class ChartViewComponent implements OnInit {
     this.xaxis= {
       categories: xLabels,
       title: {
-        text: "Daily task count for a week"
+        text: "Upcoming Days"
       }
     };
     this.yaxis= {

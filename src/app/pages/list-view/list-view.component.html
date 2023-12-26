@@ -1,13 +1,13 @@
 <div class="row m-3" id="card_list_view">
     <div class="col-md-10">
-        <div class="card rounded-4">
+        <div class="card rounded-4" style="max-height: 85vh; overflow-y: auto;">
             <div class="card-header border-0">
                 <div class="row g-3">
                     <h2>All your task are here!</h2>
                 </div>
 
             </div>
-            <div class="card-body">
+            <div class="card-body p-1">
                 <div class="container">
                     <div class="table-responsive list-table">
                         <table class="table table-hover">
@@ -52,7 +52,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="row justify-content-md-between align-items-md-center ">
+                    <div class="row justify-content-md-between align-items-md-center">
                         <div class="col col-sm-6">
                             <p class="mb-2">
                                 Showing {{ tasks.length ===0?0: (page - 1) * pageSize + 1 }} to {{ getMax() }} of {{
@@ -73,10 +73,29 @@
                             style="background-color: rgb(40, 163, 143); color:white; font-weight:bold;">New Task</a>
                         <a href="side_nav/chart_view" class="btn text-white"
                             style="background-color: rgb(40, 163, 143); font-weight: bold;">Analyse Tasks</a>
-                        <button class="btn btn-danger" style=" font-weight:bold;">Delete All Task</button>
+                        <button class="btn btn-danger" style=" font-weight:bold;"
+                            (click)="openDialog(delteAllTasks)">Delete All Task</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #delteAllTasks let-modal>
+    <div class="modal-content">
+        <div class="modal-header p-3 pb-0 d-flex justify-content-center">
+            <p class="fs-18 fw-medium" id="exampleModalLabel1">Are you sure you want to delete all the tasks?</p>
+            <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal1"
+                (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="container d-flex justify-content-around">
+                    <button class="btn btn-success" (click)="deleteAllTask()"><i class="fa-solid fa-check"></i> Yes</button>
+                    <button class="btn btn-danger" (click)="modal.dismiss('Cross click')"><i class="fa-solid fa-circle-xmark"></i> No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
