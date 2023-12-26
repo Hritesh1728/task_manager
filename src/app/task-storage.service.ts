@@ -22,6 +22,7 @@ export class TaskStorageService {
   addTask(task: Task): void {
     const tasks = this.getTasks();
     tasks.push(task);
+    this.task_sort(tasks);
     this.saveTasks(tasks);
   }
 
@@ -40,5 +41,20 @@ export class TaskStorageService {
 
   private saveTasks(tasks: Task[]): void {
     localStorage.setItem(this.storageKey, JSON.stringify(tasks));
+  }
+  private task_sort(tasks:Task[]): void{
+    tasks.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+    
+      // Compare names
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
   }
 }

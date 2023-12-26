@@ -45,19 +45,6 @@ export class EditTaskComponent implements OnInit{
         }
       }
     });
-    this.tasks.sort((a, b) => {
-      const nameA = a.name.toLowerCase();
-      const nameB = b.name.toLowerCase();
-    
-      // Compare names
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-      return 0;
-    });
   }
 
   updateTask(event: any): void {

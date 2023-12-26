@@ -66,14 +66,20 @@ export class ListViewComponent implements OnInit {
     });
   }
 
-  deleteTask(index: number): void {
-    this.taskService.deleteTask(index);
+  deleteTask(editTaskName: string): void {
+    const temp_task = this.taskService.getTasks();
+    for(let i=0;i<temp_task.length;i++){
+      if(temp_task[i].name===editTaskName){
+        this.taskService.deleteTask(i);
+      }
+    }
     this.tasks = this.taskService.getTasks();
     this.sort_due_date();
     this.toastr.warning("The task is deleted.")
   }
   deleteAllTask() {
     localStorage.removeItem('tasks');
+    this.tasks = this.taskService.getTasks();
     this.modalService.dismissAll();
     this.toastr.success('All your tasks asr deleted!')
   }
