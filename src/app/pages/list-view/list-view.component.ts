@@ -81,7 +81,7 @@ export class ListViewComponent implements OnInit {
     localStorage.removeItem('tasks');
     this.tasks = this.taskService.getTasks();
     this.modalService.dismissAll();
-    this.toastr.success('All your tasks asr deleted!')
+    this.toastr.success('All your tasks are deleted!')
   }
 
   getMax() {

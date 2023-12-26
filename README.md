@@ -25,22 +25,22 @@ Hence, it enhance your productivity with and helps to conquer your tasks with ea
 
 ## How does it works!
 1. Click the **Get Started!** button on the homepage.
-![get_started](src/assets/gif/get_started.gif)
+<img src="src/assets/gif/get_started.gif" alt="login image" width="360" height="300">
 
 2. Add new task
-![add_task](src/assets/gif/add_task.gif)
+<img src="src/assets/gif/add_task.gif" alt="login image" width="360" height="300">
 
-3. Edit your task if you their are changes in plan
-![edit_task](src/assets/gif/edit_task.gif)
+3. Revise your task in case there are alterations to the plan.
+<img src="src/assets/gif/edit_task.gif" alt="login image" width="360" height="300">
 
-4. View your task in a list of table type
-![view_task](src/assets/gif/view_task.gif)
+4. See your tasks presented in a tabular list format.
+<img src="src/assets/gif/view_task.gif" alt="login image" width="360" height="300">
 
 5. Analyse your weekly commitments
-![analyse_task](src/assets/gif/analyse_tasks.gif)
+<img src="src/assets/gif/analyse_tasks.gif" alt="analyse task" width="360" height="300">
 
 6. Delete your task or tasks
-![delete_task](src/assets/gif/delete_task.gif)
+<img src="src/assets/gif/delete_task.gif" alt="delete task" width="360" height="300">
 
 ## Technologies
 I used `Angular`, `Angular Bootstrap`, `ng-apexcharts`, `bootstrap`,`HTML5`, `CSS3`,`JavaScript`,`Browser Properties`, `Font Awesome`,`Google fonts` and many more.
@@ -53,5 +53,5 @@ I used `Angular`, `Angular Bootstrap`, `ng-apexcharts`, `bootstrap`,`HTML5`, `CS
 ## Credits
 - *I would like to express my gratitude to **`Biva Analytics`** for providing me with the opportunity to work on this project. Their insightful assignment has served as the driving force behind the purposeful development of this project.*
 
-![Biva Logo](src/assets/gif/biva.jpeg)
+<img src="src/assets/gif/biva.jpeg" alt="biva logo" width="360" height="300">
 
