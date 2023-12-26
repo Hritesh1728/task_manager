@@ -1,0 +1,37 @@
+<div class="row m-3" id="card_chart_view">
+  <div class="col-md-10">
+    <div class="card rounded-4">
+      <div class="card-header border-0">
+        <div class="row g-3">
+          <h2>Review and organize your weekly schedule here!</h2>
+        </div>
+
+      </div>
+      <div class="card-body" id="chat_view_card">
+        <div class="row m-0 p-0">
+          <div class="col-md-7 border border-2 border-light rounded-3">
+            <apx-chart [series]="series" [chart]="chart" [title]="title" [stroke]="stroke" [dataLabels]="datalabels"
+              [legend]="legend" [markers]="markers" [grid]="grid" [yaxis]="yaxis" [xaxis]="xaxis"
+              [title]="title"></apx-chart>
+          </div>
+          <div class="col-md-5 d-flex flex-column mb-3 justify-content-between">
+            <div class="container text-center p-3 d-flex flex-column border border-2 border-light rounded-3" style="margin-top: 20px;">
+              <h4 style="font-weight: 500;">Toggle chart type</h4>
+              <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-dark text-white" (click)="chartType('line')"><i class="fa-solid fa-chart-line"></i> Line</button>
+                <button class="btn btn-dark text-white" (click)="chartType('area')"><i class="fa-solid fa-chart-area"></i> Area</button>
+                <button class="btn btn-dark text-white" (click)="chartType('bar')"><i class="fa-solid fa-chart-simple"></i> Bar</button>
+              </div>
+            </div>
+            <div class="container text-center mb-3 mt-3 p-3 d-flex justify-content-around gap-3">
+              <a href="side_nav/add_task" class="btn text-white"
+                  style="background-color: rgb(40, 163, 143); font-weight: bold;">New Task</a>
+              <a href="side_nav/list_view" class="btn text-white"
+                  style="background-color: rgb(40, 163, 143); font-weight: bold;">View Tasks</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

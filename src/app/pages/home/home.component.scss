@@ -1,0 +1,24 @@
+#txt-1 {
+    color: rgb(189, 79, 20);
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#get_started_btn {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.expand-on-hover {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.expand-on-hover:hover {
+    transform: scale(1.1);
+}

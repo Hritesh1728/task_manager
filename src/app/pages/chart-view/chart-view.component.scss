@@ -1,0 +1,25 @@
+#card_chart_view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#card_chart_view .card {
+    margin: 50px 20px 0 20px;
+}
+
+@media (max-width: 767px) {
+    /* Styles for screens up to 767px wide (typically mobile screens) */
+    #card_chart_view .card {
+        margin: 150px 5px 0 5px;
+        width: calc(100% - 10px);
+        height: 70vh; /* Subtract the left and right margins */
+    }
+}
+
+#card_chart_view .card .card-header{
+    background-color: rgb(40, 163, 143);
+    background: linear-gradient(to right, rgb(40, 163, 143),rgb(189,79,20));;
+    color: white;
+    text-align:center;
+}

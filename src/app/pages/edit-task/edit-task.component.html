@@ -1,0 +1,61 @@
+<div class="row m-3" id="card_add_task">
+    <div class="col-md-8">
+        <div class="card rounded-4">
+            <div class="card-header border-0">
+                <div class="row g-3">
+                    <h2>Edit your tasks here!</h2>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <div class="container mt-3">
+                    <form id="task_form">
+                        <!-- Task Name -->
+                        <div class="form-group" *ngIf="toUpdateName===''">
+                            <label for="taskName" style="font-weight: bold;">Task Name:</label>
+                            <select class="form-control" id="taskName" name="taskName" [(ngModel)]="formData.name"
+                                (change)="updateTask($event)" required>
+                                <option value="" disabled selected>
+                                    <p>Select a Task</p>
+                                </option>
+                                <option *ngFor="let task of tasks; let i = index" [value]="i">{{ task.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group" *ngIf="toUpdateName!==''">
+                            <label for="taskName" style="font-weight: bold;">Task Name:</label>
+                            <div class="container border border-1 border-grey rounded-2">
+                                <p id="taskName" name="taskName" class="m-0" style="color: lightgray;" >{{formData.name}}</p>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group">
+                            <label for="description" style="font-weight: bold ">Description:</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"
+                                placeholder="Enter Description" [(ngModel)]="formData.description"></textarea>
+                        </div>
+
+                        <!-- Due Date -->
+                        <div class="form-group">
+                            <label for="dueDate" style="font-weight: bold;">Due Date:</label>
+                            <input type="date" class="form-control" id="dueDate" name="dueDate"
+                                [(ngModel)]="formData.dueDate">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div id="form_btn">
+                            <button type="submit" class="btn text-white" (click)="editTask()"
+                                style="background-color: rgb(189, 79, 20); font-weight:bold;">Edit Task</button>
+                            <a href="side_nav/list_view" class="btn text-white"
+                                style="background-color: rgb(40, 163, 143); font-weight: bold;">View
+                                Tasks</a>
+                            <a href="side_nav/chart_view" class="btn text-white"
+                                style="background-color: rgb(40, 163, 143); font-weight: bold;">Analyse Tasks</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
