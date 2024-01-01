@@ -49,9 +49,3 @@ I used `Angular`, `Angular Bootstrap`, `ng-apexcharts`, `bootstrap`,`HTML5`, `CS
 - download or clone the repository
 - run `npm install`
 - then run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. 
-
-## Credits
-- *I would like to express my gratitude to **`Biva Analytics`** for providing me with the opportunity to work on this project. Their insightful assignment has served as the driving force behind the purposeful development of this project.*
-
-<img src="src/assets/gif/biva.jpeg" alt="biva logo" width="360" height="300">
-
